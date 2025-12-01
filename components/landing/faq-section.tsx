@@ -4,57 +4,57 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    question: "¿Cómo funciona la respuesta automática por WhatsApp?",
+    question: "¿Cómo funciona la prueba gratuita?",
     answer:
-      "Conectas tu WhatsApp Business a RentalFlow y configuramos respuestas automáticas personalizadas. Cuando alguien contacta por un piso, recibe información inmediata, fotos y un enlace al formulario de cualificación. Todo sin que tengas que hacer nada.",
+      "Tienes 14 días para probar todas las funcionalidades de RentalFlow sin coste. No necesitas tarjeta de crédito para empezar. Si decides continuar, elige el plan que mejor se adapte a tu negocio.",
   },
   {
-    question: "¿Qué documentación puede pedir automáticamente?",
+    question: "¿Qué portales inmobiliarios son compatibles?",
     answer:
-      "Puedes configurar qué documentos necesitas: DNI, última nómina, contrato de trabajo, referencias de anteriores caseros, justificante de ingresos... El sistema lo solicita de forma amable y va recordando hasta que el candidato completa todo.",
+      "RentalFlow es compatible con todos los principales portales españoles: Idealista, Fotocasa, Habitaclia, Pisos.com, Yaencontré, y prácticamente cualquier portal que envíe leads por email.",
   },
   {
-    question: "¿Y si un lead necesita atención personalizada?",
+    question: "¿Necesito conocimientos técnicos para configurarlo?",
     answer:
-      "Siempre puedes intervenir cuando quieras. El sistema te notifica si detecta preguntas que no puede responder o si un candidato muy cualificado necesita atención especial. Automatizas lo repetitivo, no pierdes el toque humano.",
+      "No. La configuración es muy sencilla y solo requiere redirigir los emails de tus portales a tu cuenta de RentalFlow. Tenemos guías paso a paso y soporte para ayudarte en todo momento.",
   },
   {
-    question: "¿Funciona con cualquier portal inmobiliario?",
+    question: "¿Puedo personalizar los emails que se envían a los leads?",
     answer:
-      "Sí. Cualquier portal que envíe leads por email (Idealista, Fotocasa, Habitaclia, Pisos.com, Yaencontré, Milanuncios...) funciona con RentalFlow. También capturamos leads de tu web o redes sociales.",
-  },
-  {
-    question: "¿Cuánto tiempo se tarda en configurar?",
-    answer:
-      "Menos de 10 minutos. Solo tienes que redirigir los emails de tus portales a tu cuenta de RentalFlow y personalizar las plantillas de respuesta. Tenemos guías paso a paso y soporte para ayudarte.",
-  },
-  {
-    question: "¿Puedo personalizar los mensajes automáticos?",
-    answer:
-      "Totalmente. Escribes los mensajes con tu tono y tu estilo, añades tu firma, incluyes información específica de cada inmueble... El sistema responde como tú lo harías, pero sin ocupar tu tiempo.",
+      "Sí, completamente. Puedes personalizar las plantillas de email con tu marca, firma, y el contenido que prefieras. También puedes usar variables dinámicas como el nombre del inmueble o del lead.",
   },
   {
     question: "¿Qué pasa si supero el límite de leads de mi plan?",
     answer:
-      "Te avisamos cuando te acerques al límite. Puedes subir de plan en cualquier momento sin perder configuración. Los leads que lleguen por encima del límite se guardan, simplemente se pausa el procesamiento automático.",
+      "Te avisaremos cuando te acerques al límite. Puedes actualizar tu plan en cualquier momento. Los leads adicionales no se pierden, simplemente se pausará el procesamiento automático hasta que actualices.",
+  },
+  {
+    question: "¿Puedo cancelar en cualquier momento?",
+    answer:
+      "Sí, sin compromiso. Puedes cancelar tu suscripción cuando quieras desde tu panel de control. No hay penalizaciones ni letra pequeña.",
   },
   {
     question: "¿Mis datos están seguros?",
     answer:
-      "Cumplimos con GDPR y toda la normativa europea. Los datos se almacenan en servidores europeos con encriptación. Además, nunca compartimos ni usamos los datos de tus leads para nada que no sea tu gestión.",
+      "Absolutamente. Cumplimos con el GDPR y toda la normativa europea de protección de datos. Tus datos se almacenan en servidores europeos con encriptación de nivel bancario.",
+  },
+  {
+    question: "¿Ofrecéis soporte en español?",
+    answer:
+      "Sí, todo nuestro equipo de soporte es español y está disponible en horario laboral. Los planes Pro y Agency incluyen soporte prioritario con tiempos de respuesta garantizados.",
   },
 ]
 
 export function FaqSection() {
   return (
-    <section id="faq" className="py-20 lg:py-28">
+    <section id="faq" className="py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-20">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">FAQ</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-5 text-balance">Preguntas frecuentes</h2>
+        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 text-balance">Preguntas frecuentes</h2>
           <p className="text-lg text-muted-foreground text-pretty">
-            ¿Dudas? Aquí resolvemos las más comunes. Si no encuentras tu respuesta, escríbenos.
+            ¿Tienes dudas? Aquí resolvemos las más comunes. Si no encuentras tu respuesta, escríbenos a
+            soporte@rentalflow.es
           </p>
         </div>
 
@@ -62,11 +62,11 @@ export function FaqSection() {
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-b border-border">
-                <AccordionTrigger className="text-left text-foreground hover:text-primary py-5 text-base font-medium">
+              <AccordionItem key={index} value={`item-${index}`}>
+                <AccordionTrigger className="text-left text-foreground hover:text-emerald-600">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">{faq.answer}</AccordionContent>
+                <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

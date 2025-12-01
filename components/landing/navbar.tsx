@@ -3,14 +3,14 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Building2 } from "lucide-react"
+import { Menu, X, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "#beneficios", label: "Beneficios" },
   { href: "#como-funciona", label: "Cómo funciona" },
-  { href: "#precios", label: "Precios" },
   { href: "#testimonios", label: "Testimonios" },
+  { href: "#precios", label: "Precios" },
   { href: "#faq", label: "FAQ" },
 ]
 
@@ -36,11 +36,11 @@ export function Navbar() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary text-primary-foreground">
-              <Building2 className="w-5 h-5" />
+          <Link href="/" className="flex items-center gap-2">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-emerald-600 text-white">
+              <Home className="w-5 h-5" />
             </div>
-            <span className="text-xl font-bold text-foreground tracking-tight">RentalFlow</span>
+            <span className="text-xl font-bold text-foreground">RentalFlow</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -58,10 +58,10 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" asChild className="text-foreground">
+            <Button variant="ghost" asChild>
               <Link href="/dashboard">Acceder</Link>
             </Button>
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+            <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white">
               <Link href="#precios">Empezar gratis</Link>
             </Button>
           </div>
@@ -78,13 +78,13 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border bg-background">
+          <div className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
@@ -94,7 +94,7 @@ export function Navbar() {
                 <Button variant="ghost" asChild>
                   <Link href="/dashboard">Acceder</Link>
                 </Button>
-                <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button asChild className="bg-emerald-600 hover:bg-emerald-700 text-white">
                   <Link href="#precios">Empezar gratis</Link>
                 </Button>
               </div>
